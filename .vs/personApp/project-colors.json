@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5f122a18-66e0-4a0a-bcc9-a57c279e5b9f": {
+      "ProjectGuid": "5f122a18-66e0-4a0a-bcc9-a57c279e5b9f",
+      "DisplayName": "personAppCore",
+      "ColorIndex": 0
+    },
+    "575c2611-c1d5-4c75-8f13-629bd7b160aa": {
+      "ProjectGuid": "575c2611-c1d5-4c75-8f13-629bd7b160aa",
+      "DisplayName": "personApp.DAL",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

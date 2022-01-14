@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "personAppCore", "personAppCore\personAppCore.csproj", "{5F122A18-66E0-4A0A-BCC9-A57C279E5B9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "personApp.DAL", "personApp.DAL\personApp.DAL.csproj", "{575C2611-C1D5-4C75-8F13-629BD7B160AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F122A18-66E0-4A0A-BCC9-A57C279E5B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F122A18-66E0-4A0A-BCC9-A57C279E5B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F122A18-66E0-4A0A-BCC9-A57C279E5B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F122A18-66E0-4A0A-BCC9-A57C279E5B9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{575C2611-C1D5-4C75-8F13-629BD7B160AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{575C2611-C1D5-4C75-8F13-629BD7B160AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{575C2611-C1D5-4C75-8F13-629BD7B160AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{575C2611-C1D5-4C75-8F13-629BD7B160AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9420D9DA-B7ED-4C91-9EE2-BF173FEC7B5F}
+	EndGlobalSection
+EndGlobal
