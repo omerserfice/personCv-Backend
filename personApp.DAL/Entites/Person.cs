@@ -15,6 +15,7 @@ namespace personApp.DAL.Entites
         public DateTime PersonBirthDay { get; set; }
         public string PersonCity { get; set; }
         public ICollection<Education> Educations { get; set; }
+        public ICollection<Ability> Abilities { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

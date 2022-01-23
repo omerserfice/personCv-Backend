@@ -3,61 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using personApp.DAL.Context;
 
 namespace personApp.DAL.Migrations
 {
     [DbContext(typeof(personAppDbContext))]
-    partial class personAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220123172911_abekle")]
+    partial class abekle
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("personApp.DAL.Entites.Ability", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AbilityName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("AbilityPoint")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("CUserId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("MDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("MUserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PersonId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("Abilities");
-                });
 
             modelBuilder.Entity("personApp.DAL.Entites.Education", b =>
                 {
@@ -159,17 +121,6 @@ namespace personApp.DAL.Migrations
                     b.ToTable("Persons");
                 });
 
-            modelBuilder.Entity("personApp.DAL.Entites.Ability", b =>
-                {
-                    b.HasOne("personApp.DAL.Entites.Person", "PersonFK")
-                        .WithMany("Abilities")
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PersonFK");
-                });
-
             modelBuilder.Entity("personApp.DAL.Entites.Education", b =>
                 {
                     b.HasOne("personApp.DAL.Entites.Person", "PersonFK")
@@ -183,8 +134,6 @@ namespace personApp.DAL.Migrations
 
             modelBuilder.Entity("personApp.DAL.Entites.Person", b =>
                 {
-                    b.Navigation("Abilities");
-
                     b.Navigation("Educations");
                 });
 #pragma warning restore 612, 618

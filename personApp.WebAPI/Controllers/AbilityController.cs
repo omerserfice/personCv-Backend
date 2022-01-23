@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using personApp.Business.Abstract;
-using personApp.Business.Validation.Education;
-using personApp.Business.Validation.Person;
-using personApp.DAL.DTO.Education;
+using personApp.Business.Validation.Ability;
+using personApp.DAL.DTO.Ability;
 using System;
 using System.Collections.Generic;
 
@@ -11,56 +10,55 @@ namespace personApp.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EducationController : ControllerBase
+    public class AbilityController : ControllerBase
     {
-        private readonly IEducationService _educationService;
+        private readonly IAbilityService _abilityService;
 
-        public EducationController(IEducationService educationService)
+        public AbilityController(IAbilityService abilityService)
         {
-            _educationService = educationService;
+            _abilityService = abilityService;
         }
-        //Listeleme işlemi
-        [HttpGet("GetListEducation")]
-         public  ActionResult<List<GetEducationListDto>> GetListEducation()
+
+        [HttpGet("GetAbilityList")]
+        public ActionResult<List<GetAbilityListDto>> GetAbilityList()
         {
             var list = new List<string>();
             try
             {
-                var educationList = _educationService.GetEducationList();
-                if (educationList.Count == 0)
+                var abilityList = _abilityService.GetAbilityList();
+                if (abilityList.Count == 0)
                 {
-                    list.Add("Eğitim Bilgisi Bulunamadı.");
+                    list.Add("Yetenek Bilgisi Bulunamadı.");
                     return Ok(new { code = StatusCode(1001), message = list, type = "error" });
                 }
-                return Ok(educationList);
+                return Ok(abilityList);
+
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);  
+                return BadRequest(ex.Message);
             }
         }
-        // Id ye göre Eğitim Bilgilerini Getirme
-       [HttpGet("GetEducationById/{id}")]
-       public ActionResult<GetEducationDto> GetEducationById(int id)
+        [HttpGet("GetAbilityById/{id}")]
+        public ActionResult<GetAbilityDto> GetAbilityById(int id)
         {
             var list = new List<string>();
             if (id <= 0)
             {
-                list.Add("Id geçersiz!");
+                list.Add("Geçersiz Id!");
             }
             try
             {
-                var result = _educationService.GetEducationById(id);
+                var result = _abilityService.GetAbilityById(id);
                 if (result == null)
                 {
-                    list.Add("Eğitim Bilgisi Bulunamadı");
+                    list.Add("Yetenek Bilgisi Bulunamadı");
                     return Ok(new { code = StatusCode(1001), message = list, type = "error" });
-                }
-                else
+                }else 
                 {
-                   
                     return Ok(new { code = StatusCode(1000), message = result, type = "success" });
                 }
+                
             }
             catch (Exception ex)
             {
@@ -68,14 +66,12 @@ namespace personApp.WebAPI.Controllers
             }
         }
 
-
-        // Ekleme İŞlemi
-       [HttpPost("AddEducation")]
-       public ActionResult<string> AddEducation(AddEducationDto addEducationDto)
+        [HttpPost("AddAbility")]
+        public ActionResult<string> AddAbility(AddAbilityDto addAbilityDto)
         {
             var list = new List<string>();
-            var Validator = new AddEducationValidator();
-            var validationResult = Validator.Validate(addEducationDto);
+            var Validator = new AddAbilityValidator();
+            var validationResult = Validator.Validate(addAbilityDto);
             if (!validationResult.IsValid)
             {
                 foreach (var error in validationResult.Errors)
@@ -86,10 +82,10 @@ namespace personApp.WebAPI.Controllers
             }
             try
             {
-                var results = _educationService.AddEducation(addEducationDto);
-                if (results>0)
+                var result = _abilityService.AddAbility(addAbilityDto);
+                if (result > 0)
                 {
-                    list.Add("Ekleme işlemi başarılı");
+                    list.Add("Ekleme İşlemi Başarılı");
                     return Ok(new { code = StatusCode(1000), message = list, type = "success" });
 
                 }
@@ -102,59 +98,58 @@ namespace personApp.WebAPI.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
-                
             }
         }
-        //Güncelleme İşlemi
-        [HttpPut("UpdateEducation/{id}")]
 
-        public ActionResult<string> UpdateEducation(int id,UpdateEducationDto updateEducationDto)
+        [HttpPut("UpdateAbility/{id}")]
+
+        public ActionResult<string> UpdateAbility(int id,UpdateAbilityDto updateAbilityDto)
         {
             var list = new List<string>();
-            var Validator = new UpdateEducationValidator();
-            var validatonResult = Validator.Validate(updateEducationDto);
-            if (!validatonResult.IsValid)
+            var Validator = new UpdateAbilityValidator();
+            var validationResult = Validator.Validate(updateAbilityDto);
+            if (!validationResult.IsValid)
             {
-                foreach (var error in validatonResult.Errors)
+                foreach (var error in validationResult.Errors)
                 {
                     list.Add(error.ErrorMessage);
                 }
                 return Ok(new { code = StatusCode(1002), message = list, type = "error" });
             }
-
             try
             {
-                var results = _educationService.UpdateEducation(id,updateEducationDto);
-                if (results > 0)
+
+                var result = _abilityService.UpdateAbility(id, updateAbilityDto);
+                if (result > 0)
                 {
-                    list.Add("Güncelleme İşlemi Başarılı");
+                    list.Add("Ekleme İşlemi Başarılı");
                     return Ok(new { code = StatusCode(1000), message = list, type = "success" });
-                }else if(results == -1)
+                }
+                else if(result == -1)
                 {
-                    list.Add("Eğitim Bilgisi Bulunamadı");
+                    list.Add("Yetenek Bilgisi Bulunamadı");
                     return Ok(new { code = StatusCode(1001), message = list, type = "error" });
                 }
                 else
                 {
                     list.Add("Güncelleme İşlemi Başarısız");
-                    return Ok(new { code = StatusCode(1002), message = list, type = "error" });
+                    return Ok(new { code = StatusCode(1001), message = list, type = "error" });
                 }
+
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
         }
 
-        //Silme İşlemi
-        [HttpDelete("DeleteEducation/{id}")]
-        public ActionResult<string> DeleteEducation(int id)
+        [HttpDelete("DeleteAbility/{id}")]
+        public ActionResult<string> DeleteAbility(int id)
         {
-           var list = new List<string>();
+            var list = new List<string>();
             try
             {
-                var result = _educationService.DeleteEducation(id);
+                var result = _abilityService.DeleteAbility(id);
                 if(result > 0)
                 {
                     list.Add("Silme İşlemi Başarılı");
@@ -162,7 +157,7 @@ namespace personApp.WebAPI.Controllers
                 }
                 else if (result == -1)
                 {
-                    list.Add("Eğitim Bilgisi Bulunamadı");
+                    list.Add("Yetenek Bilgisi Bulunamadı");
                     return Ok(new { code = StatusCode(1001), message = list, type = "error" });
                 }
                 else
@@ -173,13 +168,9 @@ namespace personApp.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);    
+                return BadRequest(ex.Message);
             }
-           
 
-            
         }
-
-
     }
 }
