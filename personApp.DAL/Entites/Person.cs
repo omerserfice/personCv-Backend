@@ -9,12 +9,12 @@ namespace personApp.DAL.Entites
 {
     public class Person : Audit , IEntity, ISoftDeleted
     {
-        public int PersonId { get; set; }
+        public int Id { get; set; }
         public string PersonName { get; set; }
         public string PersonSurname { get; set; }
         public DateTime PersonBirthDay { get; set; }
         public string PersonCity { get; set; }
-        public ICollection<Ability> Abilities { get; set; }
+        public ICollection<Education> Educations { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

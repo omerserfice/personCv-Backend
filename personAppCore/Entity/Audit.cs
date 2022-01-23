@@ -8,6 +8,10 @@ namespace personAppCore.Entity
 {
     public abstract class Audit
     {
+        public Audit()
+        {
+            CDate = DateTime.Now;
+        }
         public int CUserId { get; set; }
         public DateTime CDate { get; set; }
         public int? MUserId { get; set; }

@@ -15,7 +15,17 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "5aa8fb36-08c6-408c-bed8-6ccabde1d04b": {
+      "ProjectGuid": "5aa8fb36-08c6-408c-bed8-6ccabde1d04b",
+      "DisplayName": "personApp.Business",
+      "ColorIndex": 2
+    },
+    "aaede09d-fc1d-4007-98df-5b62c12e3c23": {
+      "ProjectGuid": "aaede09d-fc1d-4007-98df-5b62c12e3c23",
+      "DisplayName": "personApp.WebAPI",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 4
 }

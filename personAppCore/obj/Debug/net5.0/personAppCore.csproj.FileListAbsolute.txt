@@ -1,0 +1,12 @@
+C:\Users\srfco\source\repos\personApp\personAppCore\bin\Debug\net5.0\personAppCore.deps.json
+C:\Users\srfco\source\repos\personApp\personAppCore\bin\Debug\net5.0\personAppCore.dll
+C:\Users\srfco\source\repos\personApp\personAppCore\bin\Debug\net5.0\ref\personAppCore.dll
+C:\Users\srfco\source\repos\personApp\personAppCore\bin\Debug\net5.0\personAppCore.pdb
+C:\Users\srfco\source\repos\personApp\personAppCore\obj\Debug\net5.0\personAppCore.csproj.AssemblyReference.cache
+C:\Users\srfco\source\repos\personApp\personAppCore\obj\Debug\net5.0\personAppCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\srfco\source\repos\personApp\personAppCore\obj\Debug\net5.0\personAppCore.AssemblyInfoInputs.cache
+C:\Users\srfco\source\repos\personApp\personAppCore\obj\Debug\net5.0\personAppCore.AssemblyInfo.cs
+C:\Users\srfco\source\repos\personApp\personAppCore\obj\Debug\net5.0\personAppCore.csproj.CoreCompileInputs.cache
+C:\Users\srfco\source\repos\personApp\personAppCore\obj\Debug\net5.0\personAppCore.dll
+C:\Users\srfco\source\repos\personApp\personAppCore\obj\Debug\net5.0\ref\personAppCore.dll
+C:\Users\srfco\source\repos\personApp\personAppCore\obj\Debug\net5.0\personAppCore.pdb

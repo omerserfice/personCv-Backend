@@ -13,8 +13,8 @@ namespace personApp.DAL.Configuration
     {
         public void Configure(EntityTypeBuilder<Person> builder)
         {
-            builder.HasKey(p => p.PersonId);
-            builder.Property(p => p.PersonId).ValueGeneratedOnAdd();
+            builder.HasKey(p => p.Id);
+            builder.Property(p => p.Id).ValueGeneratedOnAdd();
             builder.Property(p => p.PersonName).HasMaxLength(100).IsRequired();
             builder.Property(p => p.PersonSurname).HasMaxLength(150).IsRequired();
             builder.Property(p=>p.PersonCity).IsRequired();

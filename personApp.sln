@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "personAppCore", "personAppCore\personAppCore.csproj", "{5F122A18-66E0-4A0A-BCC9-A57C279E5B9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "personAppCore", "personAppCore\personAppCore.csproj", "{5F122A18-66E0-4A0A-BCC9-A57C279E5B9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "personApp.DAL", "personApp.DAL\personApp.DAL.csproj", "{575C2611-C1D5-4C75-8F13-629BD7B160AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "personApp.DAL", "personApp.DAL\personApp.DAL.csproj", "{575C2611-C1D5-4C75-8F13-629BD7B160AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "personApp.Business", "personApp.Business\personApp.Business.csproj", "{5AA8FB36-08C6-408C-BED8-6CCABDE1D04B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "personApp.WebAPI", "personApp.WebAPI\personApp.WebAPI.csproj", "{AAEDE09D-FC1D-4007-98DF-5B62C12E3C23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{575C2611-C1D5-4C75-8F13-629BD7B160AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{575C2611-C1D5-4C75-8F13-629BD7B160AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{575C2611-C1D5-4C75-8F13-629BD7B160AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AA8FB36-08C6-408C-BED8-6CCABDE1D04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AA8FB36-08C6-408C-BED8-6CCABDE1D04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AA8FB36-08C6-408C-BED8-6CCABDE1D04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AA8FB36-08C6-408C-BED8-6CCABDE1D04B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAEDE09D-FC1D-4007-98DF-5B62C12E3C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAEDE09D-FC1D-4007-98DF-5B62C12E3C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAEDE09D-FC1D-4007-98DF-5B62C12E3C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAEDE09D-FC1D-4007-98DF-5B62C12E3C23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
