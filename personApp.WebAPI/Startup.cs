@@ -33,8 +33,10 @@ namespace personApp.WebAPI
 
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<IEducationService, EducationService>();
-            services.AddScoped<IAbilityService, AbilityService>();  
-
+            services.AddScoped<IAbilityService, AbilityService>();
+            services.AddScoped<IAboutService, AboutService>();
+            services.AddScoped<IExperienceService, ExperienceService>();
+           
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

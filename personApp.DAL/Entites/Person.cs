@@ -16,6 +16,8 @@ namespace personApp.DAL.Entites
         public string PersonCity { get; set; }
         public ICollection<Education> Educations { get; set; }
         public ICollection<Ability> Abilities { get; set; }
+        public ICollection<About> Abouts { get; set; }
+        public ICollection<Experience> Experiences { get; set; }    
         public bool IsDeleted { get; set; }
     }
 }

@@ -22,5 +22,7 @@ namespace personApp.DAL.Context
         public DbSet<Person> Persons { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<Ability> Abilities { get; set; }
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<Experience> Experiences { get; set; }
     }
 }

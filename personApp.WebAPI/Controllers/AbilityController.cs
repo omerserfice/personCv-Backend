@@ -122,7 +122,7 @@ namespace personApp.WebAPI.Controllers
                 var result = _abilityService.UpdateAbility(id, updateAbilityDto);
                 if (result > 0)
                 {
-                    list.Add("Ekleme İşlemi Başarılı");
+                    list.Add("Güncelleme İşlemi Başarılı");
                     return Ok(new { code = StatusCode(1000), message = list, type = "success" });
                 }
                 else if(result == -1)

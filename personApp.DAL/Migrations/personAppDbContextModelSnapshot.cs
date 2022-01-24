@@ -59,6 +59,51 @@ namespace personApp.DAL.Migrations
                     b.ToTable("Abilities");
                 });
 
+            modelBuilder.Entity("personApp.DAL.Entites.About", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AboutDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AboutImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AboutTitle")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime>("CDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CUserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("MDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Abouts");
+                });
+
             modelBuilder.Entity("personApp.DAL.Entites.Education", b =>
                 {
                     b.Property<int>("Id")
@@ -113,6 +158,64 @@ namespace personApp.DAL.Migrations
                     b.HasIndex("PersonId");
 
                     b.ToTable("Educations");
+                });
+
+            modelBuilder.Entity("personApp.DAL.Entites.Experience", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Departman")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDateOfWork")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("MDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDateOfWork")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("WorkDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WorkPosition")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Experiences");
                 });
 
             modelBuilder.Entity("personApp.DAL.Entites.Person", b =>
@@ -170,6 +273,17 @@ namespace personApp.DAL.Migrations
                     b.Navigation("PersonFK");
                 });
 
+            modelBuilder.Entity("personApp.DAL.Entites.About", b =>
+                {
+                    b.HasOne("personApp.DAL.Entites.Person", "PersonFK")
+                        .WithMany("Abouts")
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PersonFK");
+                });
+
             modelBuilder.Entity("personApp.DAL.Entites.Education", b =>
                 {
                     b.HasOne("personApp.DAL.Entites.Person", "PersonFK")
@@ -181,11 +295,26 @@ namespace personApp.DAL.Migrations
                     b.Navigation("PersonFK");
                 });
 
+            modelBuilder.Entity("personApp.DAL.Entites.Experience", b =>
+                {
+                    b.HasOne("personApp.DAL.Entites.Person", "PersonFK")
+                        .WithMany("Experiences")
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PersonFK");
+                });
+
             modelBuilder.Entity("personApp.DAL.Entites.Person", b =>
                 {
                     b.Navigation("Abilities");
 
+                    b.Navigation("Abouts");
+
                     b.Navigation("Educations");
+
+                    b.Navigation("Experiences");
                 });
 #pragma warning restore 612, 618
         }
