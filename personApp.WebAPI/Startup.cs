@@ -8,8 +8,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using personApp.Business.Abstract;
+using personApp.Business.Abstract.Index;
 using personApp.Business.Concrete;
+using personApp.Business.Concrete.Index;
 using personApp.DAL.Context;
+using personApp.DAL.MongoEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +39,14 @@ namespace personApp.WebAPI
             services.AddScoped<IAbilityService, AbilityService>();
             services.AddScoped<IAboutService, AboutService>();
             services.AddScoped<IExperienceService, ExperienceService>();
-           
+            services.AddScoped<ICertificateService, CertificateService>();
+            services.AddScoped<IMessageService, MessageService>();  
+          
+
+            services.AddScoped<IMongoDbContext, MongoDbContext>();
+            services.AddScoped<IIndexCoverImageService, IndexCoverImageService>();
+            services.AddScoped<IIndexGalleryImageService, IndexGalleryImageService>();
+            services.Configure<MongoOptions>(Configuration.GetSection("MongoOptions"));           
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

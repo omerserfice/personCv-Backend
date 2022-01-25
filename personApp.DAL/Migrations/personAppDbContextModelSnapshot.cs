@@ -104,6 +104,57 @@ namespace personApp.DAL.Migrations
                     b.ToTable("Abouts");
                 });
 
+            modelBuilder.Entity("personApp.DAL.Entites.Certificates", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CertificateDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CertificateImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CertificateName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateOfIssue")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("MDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Organisation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Certificates");
+                });
+
             modelBuilder.Entity("personApp.DAL.Entites.Education", b =>
                 {
                     b.Property<int>("Id")
@@ -218,6 +269,58 @@ namespace personApp.DAL.Migrations
                     b.ToTable("Experiences");
                 });
 
+            modelBuilder.Entity("personApp.DAL.Entites.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CUserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("MDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Mail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MessageDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("personApp.DAL.Entites.Person", b =>
                 {
                     b.Property<int>("Id")
@@ -284,6 +387,17 @@ namespace personApp.DAL.Migrations
                     b.Navigation("PersonFK");
                 });
 
+            modelBuilder.Entity("personApp.DAL.Entites.Certificates", b =>
+                {
+                    b.HasOne("personApp.DAL.Entites.Person", "PersonFK")
+                        .WithMany("Certificates")
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PersonFK");
+                });
+
             modelBuilder.Entity("personApp.DAL.Entites.Education", b =>
                 {
                     b.HasOne("personApp.DAL.Entites.Person", "PersonFK")
@@ -311,6 +425,8 @@ namespace personApp.DAL.Migrations
                     b.Navigation("Abilities");
 
                     b.Navigation("Abouts");
+
+                    b.Navigation("Certificates");
 
                     b.Navigation("Educations");
 
