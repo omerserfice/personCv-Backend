@@ -19,6 +19,7 @@ namespace personApp.DAL.Entites
         public ICollection<About> Abouts { get; set; }
         public ICollection<Experience> Experiences { get; set; }
         public ICollection<Certificates> Certificates { get; set; } 
+        public ICollection<Contact> Contacts { get; set; } 
         public bool IsDeleted { get; set; }
     }
 }

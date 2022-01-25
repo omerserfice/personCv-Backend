@@ -41,6 +41,7 @@ namespace personApp.WebAPI
             services.AddScoped<IExperienceService, ExperienceService>();
             services.AddScoped<ICertificateService, CertificateService>();
             services.AddScoped<IMessageService, MessageService>();  
+            services.AddScoped<IContactService, ContactService>();
           
 
             services.AddScoped<IMongoDbContext, MongoDbContext>();

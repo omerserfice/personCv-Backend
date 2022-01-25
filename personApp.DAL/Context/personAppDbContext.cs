@@ -26,6 +26,7 @@ namespace personApp.DAL.Context
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Certificates> Certificates { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
         
     }
 }
