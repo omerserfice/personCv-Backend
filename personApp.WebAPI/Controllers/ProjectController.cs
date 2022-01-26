@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using personApp.Business.Abstract;
-using personApp.Business.Validation.Ability;
-using personApp.DAL.DTO.Ability;
+using personApp.Business.Validation.Project;
+using personApp.DAL.DTO.Project;
 using System;
 using System.Collections.Generic;
 
@@ -10,28 +10,28 @@ namespace personApp.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AbilityController : ControllerBase
+    public class ProjectController : ControllerBase
     {
-        private readonly IAbilityService _abilityService;
+        private readonly IProjectService _projectService;
 
-        public AbilityController(IAbilityService abilityService)
+        public ProjectController(IProjectService projectService)
         {
-            _abilityService = abilityService;
+            _projectService = projectService;
         }
 
-        [HttpGet("GetAbilityList")]
-        public ActionResult<List<GetAbilityListDto>> GetAbilityList()
+        [HttpGet("GetProjectDto")]
+        public ActionResult<List<GetProjectListDto>> GetProjectList()
         {
             var list = new List<string>();
             try
             {
-                var abilityList = _abilityService.GetAbilityList();
-                if (abilityList.Count == 0)
+                var projectList = _projectService.GetProjectList();
+                if (projectList.Count == 0)
                 {
-                    list.Add("Yetenek Bilgisi Bulunamadı.");
+                    list.Add("Proje Bilgisi Bulunamadı.");
                     return Ok(new { code = StatusCode(1001), message = list, type = "error" });
                 }
-                return Ok(abilityList);
+                return Ok(projectList);
 
             }
             catch (Exception ex)
@@ -39,8 +39,8 @@ namespace personApp.WebAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpGet("GetAbilityById/{id}")]
-        public ActionResult<GetAbilityDto> GetAbilityById(int id)
+        [HttpGet("GetProjectById/{id}")]
+        public ActionResult<GetProjectDto> GetProjectById(int id)
         {
             var list = new List<string>();
             if (id <= 0)
@@ -49,16 +49,17 @@ namespace personApp.WebAPI.Controllers
             }
             try
             {
-                var result = _abilityService.GetAbilityById(id);
+                var result = _projectService.GetProjectById(id);
                 if (result == null)
                 {
-                    list.Add("Yetenek Bilgisi Bulunamadı");
+                    list.Add("Proje Bilgisi Bulunamadı");
                     return Ok(new { code = StatusCode(1001), message = list, type = "error" });
-                }else 
+                }
+                else
                 {
                     return Ok(new { code = StatusCode(1000), message = result, type = "success" });
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -66,12 +67,12 @@ namespace personApp.WebAPI.Controllers
             }
         }
 
-        [HttpPost("AddAbility")]
-        public ActionResult<string> AddAbility(AddAbilityDto addAbilityDto)
+        [HttpPost("AddProject")]
+        public ActionResult<string> AddProject(AddProjectDto addProjectDto)
         {
             var list = new List<string>();
-            var Validator = new AddAbilityValidator();
-            var validationResult = Validator.Validate(addAbilityDto);
+            var Validator = new AddProjectValidator();
+            var validationResult = Validator.Validate(addProjectDto);
             if (!validationResult.IsValid)
             {
                 foreach (var error in validationResult.Errors)
@@ -82,7 +83,7 @@ namespace personApp.WebAPI.Controllers
             }
             try
             {
-                var result = _abilityService.AddAbility(addAbilityDto);
+                var result = _projectService.AddProject(addProjectDto);
                 if (result > 0)
                 {
                     list.Add("Ekleme İşlemi Başarılı");
@@ -101,12 +102,12 @@ namespace personApp.WebAPI.Controllers
             }
         }
 
-        [HttpPut("UpdateAbility/{id}")]
-        public ActionResult<string> UpdateAbility(int id,UpdateAbilityDto updateAbilityDto)
+        [HttpPut("UpdateProject/{id}")]
+        public ActionResult<string> UpdateProject(int id, UpdateProjectDto updateProjectDto)
         {
             var list = new List<string>();
-            var Validator = new UpdateAbilityValidator();
-            var validationResult = Validator.Validate(updateAbilityDto);
+            var Validator = new UpdateProjectValidator();
+            var validationResult = Validator.Validate(updateProjectDto);
             if (!validationResult.IsValid)
             {
                 foreach (var error in validationResult.Errors)
@@ -118,15 +119,15 @@ namespace personApp.WebAPI.Controllers
             try
             {
 
-                var result = _abilityService.UpdateAbility(id, updateAbilityDto);
+                var result = _projectService.UpdateProject(id, updateProjectDto);
                 if (result > 0)
                 {
                     list.Add("Güncelleme İşlemi Başarılı");
                     return Ok(new { code = StatusCode(1000), message = list, type = "success" });
                 }
-                else if(result == -1)
+                else if (result == -1)
                 {
-                    list.Add("Yetenek Bilgisi Bulunamadı");
+                    list.Add("Proje Bilgisi Bulunamadı");
                     return Ok(new { code = StatusCode(1001), message = list, type = "error" });
                 }
                 else
@@ -142,21 +143,21 @@ namespace personApp.WebAPI.Controllers
             }
         }
 
-        [HttpDelete("DeleteAbility/{id}")]
-        public ActionResult<string> DeleteAbility(int id)
+        [HttpDelete("DeleteProject/{id}")]
+        public ActionResult<string> DeleteProject(int id)
         {
             var list = new List<string>();
             try
             {
-                var result = _abilityService.DeleteAbility(id);
-                if(result > 0)
+                var result = _projectService.DeleteProject(id);
+                if (result > 0)
                 {
                     list.Add("Silme İşlemi Başarılı");
                     return Ok(new { code = StatusCode(1000), message = list, type = "success" });
                 }
                 else if (result == -1)
                 {
-                    list.Add("Yetenek Bilgisi Bulunamadı");
+                    list.Add("Proje Bilgisi Bulunamadı");
                     return Ok(new { code = StatusCode(1001), message = list, type = "error" });
                 }
                 else
@@ -171,5 +172,6 @@ namespace personApp.WebAPI.Controllers
             }
 
         }
+
     }
 }
