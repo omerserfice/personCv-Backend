@@ -54,6 +54,13 @@ namespace personApp.WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "personApp.WebAPI", Version = "v1" });
             });
+
+            //CORS 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
            
         }
 
@@ -70,6 +77,7 @@ namespace personApp.WebAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 
