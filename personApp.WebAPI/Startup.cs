@@ -1,22 +1,28 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using personApp.Business.Abstract;
 using personApp.Business.Abstract.Index;
 using personApp.Business.Concrete;
 using personApp.Business.Concrete.Index;
 using personApp.DAL.Context;
+using personApp.DAL.LoginSecurity.Helper;
 using personApp.DAL.MongoEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using personApp.DAL.LoginSecurity.Entity;
+using personApp.DAL.LoginSecurity.Encryption;
 
 namespace personApp.WebAPI
 {
@@ -43,7 +49,11 @@ namespace personApp.WebAPI
             services.AddScoped<IMessageService, MessageService>();  
             services.AddScoped<IContactService, ContactService>();
             services.AddScoped<IProjectService, ProjectService>();
-          
+            services.AddScoped<IAuthService,AuthService>();
+            services.AddScoped<ITokenHelper, TokenHelper>();
+
+         
+
 
             services.AddScoped<IMongoDbContext, MongoDbContext>();
             services.AddScoped<IIndexCoverImageService, IndexCoverImageService>();
@@ -55,12 +65,31 @@ namespace personApp.WebAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "personApp.WebAPI", Version = "v1" });
             });
 
+            //JWT AYARI
+            var tokenOptions = Configuration.GetSection("TokenOptions").Get<DAL.LoginSecurity.Entity.TokenOptions>();
+            services.Configure<DAL.LoginSecurity.Entity.TokenOptions>(Configuration.GetSection("TokenOpitons"));
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwtOption =>
+            {
+                jwtOption.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateAudience = true,    
+                    ValidateIssuer = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = tokenOptions.Issuer,
+                    ValidAudience = tokenOptions.Audience,
+                    IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey),
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
             //CORS 
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", builder =>
                  builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
+
+
            
         }
 
@@ -78,6 +107,8 @@ namespace personApp.WebAPI
 
             app.UseRouting();
             app.UseCors("CorsPolicy");
+            
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

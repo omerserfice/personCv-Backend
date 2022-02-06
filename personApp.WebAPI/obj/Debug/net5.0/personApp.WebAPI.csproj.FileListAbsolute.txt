@@ -21,7 +21,6 @@ C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\Microsof
 C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -88,3 +87,4 @@ C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\runtimes
 C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
+C:\Users\srfco\source\repos\personApp\personApp.WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

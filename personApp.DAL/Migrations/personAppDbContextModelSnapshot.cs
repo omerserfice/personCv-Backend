@@ -472,6 +472,141 @@ namespace personApp.DAL.Migrations
                     b.ToTable("Projects");
                 });
 
+            modelBuilder.Entity("personApp.DAL.Entites.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CUserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("MDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CDate = new DateTime(2022, 2, 6, 22, 13, 47, 964, DateTimeKind.Local).AddTicks(3165),
+                            CUserId = 0,
+                            IsDeleted = false,
+                            Name = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CDate = new DateTime(2022, 2, 6, 22, 13, 47, 968, DateTimeKind.Local).AddTicks(7165),
+                            CUserId = 0,
+                            IsDeleted = false,
+                            Name = "User"
+                        });
+                });
+
+            modelBuilder.Entity("personApp.DAL.Entites.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IdentityNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("MDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("personApp.DAL.Entites.UserRole", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CUserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("MDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserRoles");
+                });
+
             modelBuilder.Entity("personApp.DAL.Entites.Ability", b =>
                 {
                     b.HasOne("personApp.DAL.Entites.Person", "PersonFK")
@@ -549,6 +684,25 @@ namespace personApp.DAL.Migrations
                     b.Navigation("PersonFK");
                 });
 
+            modelBuilder.Entity("personApp.DAL.Entites.UserRole", b =>
+                {
+                    b.HasOne("personApp.DAL.Entites.Role", "RoleFK")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("personApp.DAL.Entites.User", "UserFK")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RoleFK");
+
+                    b.Navigation("UserFK");
+                });
+
             modelBuilder.Entity("personApp.DAL.Entites.Person", b =>
                 {
                     b.Navigation("Abilities");
@@ -564,6 +718,16 @@ namespace personApp.DAL.Migrations
                     b.Navigation("Experiences");
 
                     b.Navigation("Projects");
+                });
+
+            modelBuilder.Entity("personApp.DAL.Entites.Role", b =>
+                {
+                    b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("personApp.DAL.Entites.User", b =>
+                {
+                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }

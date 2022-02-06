@@ -12,6 +12,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.10",
           "Microsoft.Extensions.Options": "5.0.0",
+          "Microsoft.IdentityModel.Tokens": "5.6.0",
           "MongoDB.Driver": "2.14.1",
           "personAppCore": "1.0.0"
         },

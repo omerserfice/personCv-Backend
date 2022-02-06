@@ -83,7 +83,7 @@ namespace personApp.WebAPI.Controllers
                 var result = _messageService.AddMessage(addMessageDto);
                 if (result > 0)
                 {
-                    list.Add("Ekleme İşlemi Başarılı");
+                    list.Add("Mesajınız Gönderildi.");
                     return Ok(new { code = StatusCode(1000), message = list, type = "success" });
                 }
                 else 
