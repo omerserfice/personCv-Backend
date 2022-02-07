@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace personApp.DAL.LoginSecurity.Extension
 {
-    public struct PayloadClaimIdentifier
+    public struct PayloadRoleIdentifier
     {
         public const string UserIdentifier = "id";
         public const string FullName = "fullname";

@@ -28,8 +28,8 @@ namespace personApp.DAL.LoginSecurity.Helper
             _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
 
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
-            var signibgCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey);
-            var jwtSecurityToken = CreateJwtSecurityToken(_tokenOptions, user, signibgCredentials, userRoles);
+            var signingCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey);
+            var jwtSecurityToken = CreateJwtSecurityToken(_tokenOptions, user, signingCredentials, userRoles);
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             var token = jwtSecurityTokenHandler.WriteToken(jwtSecurityToken);   
             return new AccessToken { 

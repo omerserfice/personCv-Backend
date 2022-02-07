@@ -43,7 +43,7 @@ namespace personApp.Business.Concrete
         public User GetLoginUser(UserLoginDto userLoginDto)
         {
             var currentUser =  _context.Users
-                 .Where(p => !p.IsDeleted).FirstOrDefault();
+                 .Where(p => !p.IsDeleted && p.TCNo == userLoginDto.TCNo).FirstOrDefault();
             if (currentUser == null) return null;
             var passwordMatchResult = HashingHelper.VerifyPasswordHash(userLoginDto.Password, currentUser.PasswordHash,
                 currentUser.PasswordSalt);
@@ -64,7 +64,8 @@ namespace personApp.Business.Concrete
             var user = new User
             {
                 Name = userRegisterDto.Name,
-                Surname = userRegisterDto.Surname,  
+                Surname = userRegisterDto.Surname,
+                TCNo = userRegisterDto.TCNo,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 CDate = currentTime,

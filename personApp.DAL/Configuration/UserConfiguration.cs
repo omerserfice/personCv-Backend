@@ -15,6 +15,7 @@ namespace personApp.DAL.Configuration
         {
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
+            builder.HasAlternateKey(p => p.TCNo);
             builder.Property(p => p.Name).HasMaxLength(100).IsRequired();
             builder.Property(p => p.Surname).HasMaxLength(100).IsRequired();
             builder.Property(p => p.PasswordHash).IsRequired();

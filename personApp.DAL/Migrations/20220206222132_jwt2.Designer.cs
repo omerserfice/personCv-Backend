@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using personApp.DAL.Context;
 
 namespace personApp.DAL.Migrations
 {
     [DbContext(typeof(personAppDbContext))]
-    partial class personAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220206222132_jwt2")]
+    partial class jwt2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -8,6 +8,7 @@ namespace personApp.DAL.DTO.User
 {
     public class UserLoginDto
     {
+        public string TCNo { get; set; }
         public string Password { get; set; }
     }
 }

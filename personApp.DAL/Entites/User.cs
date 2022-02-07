@@ -10,6 +10,7 @@ namespace personApp.DAL.Entites
     public class User : Audit, IEntity, ISoftDeleted
     {
         public int Id { get; set; }
+        public string TCNo { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
 

@@ -67,10 +67,10 @@ namespace personApp.WebAPI
 
             //JWT AYARI
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<DAL.LoginSecurity.Entity.TokenOptions>();
-            services.Configure<DAL.LoginSecurity.Entity.TokenOptions>(Configuration.GetSection("TokenOpitons"));
+            services.Configure<DAL.LoginSecurity.Entity.TokenOptions>(Configuration.GetSection("TokenOptions"));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwtOption =>
             {
-                jwtOption.TokenValidationParameters = new TokenValidationParameters()
+                jwtOption.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateAudience = true,    
                     ValidateIssuer = true,
