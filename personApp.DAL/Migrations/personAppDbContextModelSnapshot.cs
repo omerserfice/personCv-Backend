@@ -507,7 +507,7 @@ namespace personApp.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            CDate = new DateTime(2022, 2, 7, 1, 21, 31, 747, DateTimeKind.Local).AddTicks(1514),
+                            CDate = new DateTime(2022, 7, 26, 22, 23, 17, 564, DateTimeKind.Local).AddTicks(3330),
                             CUserId = 0,
                             IsDeleted = false,
                             Name = "Admin"
@@ -515,7 +515,7 @@ namespace personApp.DAL.Migrations
                         new
                         {
                             Id = 2,
-                            CDate = new DateTime(2022, 2, 7, 1, 21, 31, 749, DateTimeKind.Local).AddTicks(1467),
+                            CDate = new DateTime(2022, 7, 26, 22, 23, 17, 566, DateTimeKind.Local).AddTicks(4011),
                             CUserId = 0,
                             IsDeleted = false,
                             Name = "User"

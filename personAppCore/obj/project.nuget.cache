@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BKFiNAWBg/yK6blZUAxkGFGX6fupAJkBsSw6dUAh9r+Y74x0jcUQonxy2ZPGh5kL2e2pxsJR6jpuCFxskOEggw==",
+  "dgSpecHash": "9no4it2lIrdtQHamFCb52deWUVe0aa2T2T7MpJ8lROt84SXFUnNXD9usiC97gh/xR0C0pBaE6sW78+tivgxAdg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\srfco\\source\\repos\\personApp\\personAppCore\\personAppCore.csproj",
+  "projectFilePath": "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personAppCore\\personAppCore.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

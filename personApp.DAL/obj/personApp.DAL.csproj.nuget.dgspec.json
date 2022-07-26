@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\srfco\\source\\repos\\personApp\\personApp.DAL\\personApp.DAL.csproj": {}
+    "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personApp.DAL\\personApp.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\srfco\\source\\repos\\personApp\\personApp.DAL\\personApp.DAL.csproj": {
+    "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personApp.DAL\\personApp.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\srfco\\source\\repos\\personApp\\personApp.DAL\\personApp.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personApp.DAL\\personApp.DAL.csproj",
         "projectName": "personApp.DAL",
-        "projectPath": "C:\\Users\\srfco\\source\\repos\\personApp\\personApp.DAL\\personApp.DAL.csproj",
+        "projectPath": "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personApp.DAL\\personApp.DAL.csproj",
         "packagesPath": "C:\\Users\\srfco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\srfco\\source\\repos\\personApp\\personApp.DAL\\obj\\",
+        "outputPath": "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personApp.DAL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\srfco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\srfco\\source\\repos\\personApp\\personAppCore\\personAppCore.csproj": {
-                "projectPath": "C:\\Users\\srfco\\source\\repos\\personApp\\personAppCore\\personAppCore.csproj"
+              "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personAppCore\\personAppCore.csproj": {
+                "projectPath": "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personAppCore\\personAppCore.csproj"
               }
             }
           }
@@ -86,21 +90,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\srfco\\source\\repos\\personApp\\personAppCore\\personAppCore.csproj": {
+    "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personAppCore\\personAppCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\srfco\\source\\repos\\personApp\\personAppCore\\personAppCore.csproj",
+        "projectUniqueName": "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personAppCore\\personAppCore.csproj",
         "projectName": "personAppCore",
-        "projectPath": "C:\\Users\\srfco\\source\\repos\\personApp\\personAppCore\\personAppCore.csproj",
+        "projectPath": "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personAppCore\\personAppCore.csproj",
         "packagesPath": "C:\\Users\\srfco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\srfco\\source\\repos\\personApp\\personAppCore\\obj\\",
+        "outputPath": "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personAppCore\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\srfco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -140,7 +148,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

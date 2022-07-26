@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WVsJUGa75pVan+5ehgI1BxF5/pOCEUA9A2GYRqbd0y2So7zbzHK4gOTtTEr1EzlzT0n8cdmP4CaJlh1lJ4D0Ow==",
+  "dgSpecHash": "esUgT83mt6DNpRktmfJFr8Pn6l+Jf95JzxQfLjODdCoJvc7B/Hg37Tcbwwp/oDSIAFjBmWWwy0PPBm3CekO8Sg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\srfco\\source\\repos\\personApp\\personApp.WebAPI\\personApp.WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\srfco\\source\\repos\\personCv-Backend\\personApp.WebAPI\\personApp.WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\srfco\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\srfco\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
@@ -121,7 +121,8 @@
     "C:\\Users\\srfco\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\srfco\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\srfco\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\srfco\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\srfco\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\srfco\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
   ],
   "logs": []
 }

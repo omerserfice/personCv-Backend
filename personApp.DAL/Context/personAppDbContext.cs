@@ -17,7 +17,9 @@ namespace personApp.DAL.Context
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=OMER\\SQLExpress;Database=personCvDatabase;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=89.252.185.155\\MSSQLSERVER2019;Database=neoverde_personCvDatabase;User Id=neoverde_omer;Password=&tz7046hO;");
+            //vt kullanici şfire &tz7046hO
+
         }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Education> Educations { get; set; }
