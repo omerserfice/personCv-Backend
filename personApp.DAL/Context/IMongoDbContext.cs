@@ -9,15 +9,7 @@ namespace personApp.DAL.Context
 {
     public interface IMongoDbContext
     {
-        /// <summary>
-        /// collectiona erişmek için kullanılır.
-        /// </summary>
-        
         IMongoCollection<T> GetCollection<T>();
-        /// <summary>
-        /// veritabanına erişmek için kullanılır.
-        /// </summary>
-        /// <returns></returns>
         IMongoDatabase GetDatabase();
     }
 }

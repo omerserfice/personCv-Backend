@@ -11,9 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using personApp.Business.Abstract;
-using personApp.Business.Abstract.Index;
 using personApp.Business.Concrete;
-using personApp.Business.Concrete.Index;
 using personApp.DAL.Context;
 using personApp.DAL.LoginSecurity.Helper;
 using personApp.DAL.MongoEntity;
@@ -23,6 +21,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using personApp.DAL.LoginSecurity.Entity;
 using personApp.DAL.LoginSecurity.Encryption;
+using personApp.Business.Concrete.Image;
 
 namespace personApp.WebAPI
 {
@@ -40,6 +39,8 @@ namespace personApp.WebAPI
         {
             services.AddDbContext<personAppDbContext>();
 
+            services.AddScoped<IMongoDbContext, MongoDbContext>();
+            services.AddScoped<IProjectCoverImageService, ProjectCoverImageService>();
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<IEducationService, EducationService>();
             services.AddScoped<IAbilityService, AbilityService>();
@@ -52,12 +53,6 @@ namespace personApp.WebAPI
             services.AddScoped<IAuthService,AuthService>();
             services.AddScoped<ITokenHelper, TokenHelper>();
 
-         
-
-
-            services.AddScoped<IMongoDbContext, MongoDbContext>();
-            services.AddScoped<IIndexCoverImageService, IndexCoverImageService>();
-            services.AddScoped<IIndexGalleryImageService, IndexGalleryImageService>();
             services.Configure<MongoOptions>(Configuration.GetSection("MongoOptions"));           
             services.AddControllers();
             services.AddSwaggerGen(c =>

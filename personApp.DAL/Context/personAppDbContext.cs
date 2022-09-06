@@ -17,8 +17,8 @@ namespace personApp.DAL.Context
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=89.252.185.155\\MSSQLSERVER2019;Database=neoverde_personCvDatabase;User Id=neoverde_omer;Password=&tz7046hO;");
-            //vt kullanici şfire &tz7046hO
+            optionsBuilder.UseSqlServer("Server=89.252.185.155\\MSSQLSERVER2019;Database=neoverde_personCvDatabase;User Id=neoverde_person;Password=p2f209Lw^");
+            //vt kullanici şfire p2f209Lw^
 
         }
         public DbSet<Person> Persons { get; set; }

@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 
 namespace personApp.DAL.Context
 {
+    
     public class MongoDbContext : IMongoDbContext
     {
         private readonly IMongoDatabase _mongoDB;
 
         public MongoDbContext(IOptions<MongoOptions> mongoOptions)
         {
-            var mongoClient = new MongoClient("mongodb://localhost:27017");
+            var mongoClient = new MongoClient("mongodb+srv://personadmin:ON29pokvHfVWxMli@cluster0.pwj4pql.mongodb.net/?retryWrites=true&w=majority");
             _mongoDB = mongoClient.GetDatabase(mongoOptions.Value.DatabaseName);
         }
 
